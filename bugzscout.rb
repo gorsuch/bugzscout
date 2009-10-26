@@ -1,7 +1,16 @@
+# This library that gives you easy access to the excellent BugzScout feature of FogBugz (http://fogcreek.com/fogbugz).
+# For those that don't know, BugzScout allows bug data (exceptions, user input, etc) to be reported back to your FogBugz install 
+# for further diagnosis.
+#
+# Author:: Michael Gorsuch (mailto:michael@styledbits.com)
+# Copyright:: Copyright (c) 2009 Michael Gorsuch
+# License:: Distributed under the same terms as Ruby
+
 require 'rubygems'
 require 'httpclient'
 require 'uri'
 
+# This is the core class that does all of the heavy lifting.
 class BugzScout
   attr_accessor :url, :user, :project, :area, :description, :new, :extra, :email, :default_message
 
