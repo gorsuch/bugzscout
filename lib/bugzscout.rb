@@ -12,12 +12,14 @@ require 'uri'
 
 # This is the core class that does all of the heavy lifting.
 class BugzScout
-  attr_accessor :url, :user, :project, :area, :description, :new, :extra, :email, :default_message
+  attr_accessor :url, :user, :project, :area, :title, :new, :body, :email, :default_message
 
   # provide BugzScout with the URL of your FogBugz instance, including the 'scoutsubmit.asp' entry point
   # example: https://styledbits.fogbugz.com/scoutsubmit.asp
   def initialize(url)
-    self.url = url    
+    self.url = url
+    yield self
+    self.submit    
   end
 
   # send the response to FogBugz
@@ -28,9 +30,9 @@ class BugzScout
       :ScoutUserName => self.user,
       :ScoutProject => self.project,
       :ScoutArea => self.area,
-      :Description => self.description, 
+      :Description => self.title, 
       :ForceNewBug => self.new,
-      :Extra => self.extra,
+      :Extra => self.body,
       :Email => self.email,
       :ScoutDefaultMessage => self.default_message,
       :FriendlyResponse => 0 
