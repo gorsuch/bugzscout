@@ -53,4 +53,3 @@ end
 
 # just a simple custom exception
 class BugzScoutError < RuntimeError ; end
-  
