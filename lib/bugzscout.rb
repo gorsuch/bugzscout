@@ -18,8 +18,6 @@ class BugzScout
   # example: https://styledbits.fogbugz.com/scoutsubmit.asp
   def initialize(url)
     self.url = url
-    yield self
-    self.submit    
   end
 
   # send the response to FogBugz
@@ -51,6 +49,13 @@ class BugzScout
     end
     
   end
+  
+  def self.submit(url)
+    scout = BugzScout.new(url)
+    yield scout
+    scout.submit
+  end
+  
 end
 
 # just a simple custom exception
