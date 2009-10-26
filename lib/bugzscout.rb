@@ -12,8 +12,8 @@ require 'uri'
 
 # This is the core class that does all of the heavy lifting.
 class BugzScout
-  attr_accessor :url, :user, :project, :area, :title, :new, :body, :email, :default_message
-
+  attr_accessor :url, :user, :project, :area, :title, :new, :body, :email
+  
   # provide BugzScout with the URL of your FogBugz instance, including the 'scoutsubmit.asp' entry point
   # example: https://styledbits.fogbugz.com/scoutsubmit.asp
   def initialize(url)
@@ -24,6 +24,9 @@ class BugzScout
   # return true if all goes well
   # throw a BugzScoutError exception along with the error text if otherwise.
   def submit
+    # ensure that the required fields are included
+    validate
+    
     body = {
       :ScoutUserName => self.user,
       :ScoutProject => self.project,
@@ -32,7 +35,7 @@ class BugzScout
       :ForceNewBug => self.new,
       :Extra => self.body,
       :Email => self.email,
-      :ScoutDefaultMessage => self.default_message,
+      :ScoutDefaultMessage => "",
       :FriendlyResponse => 0 
     }
     client = HTTPClient.new
@@ -47,7 +50,12 @@ class BugzScout
       # we'll return 'true' for the sake of clarity
       return true
     end
-    
+  end
+  
+  def validate
+    raise(BugzScoutError, "You have to provide a user name") if !self.user
+    raise(BugzScoutError, "You must provide a FogBugz project") if !self.project
+    raise(BugzScoutError, "You have to provide an area") if !self.area
   end
   
   def self.submit(url)
