@@ -9,7 +9,6 @@ class BugzScout
     self.url = url    
   end
 
-  # need to handle redirects and stuff
   def submit
     body = {
       :ScoutUserName => self.user,
