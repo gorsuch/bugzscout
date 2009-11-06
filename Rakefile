@@ -4,11 +4,11 @@ require 'rake/gempackagetask'
 spec = Gem::Specification.new do |s|
   s.platform  =   Gem::Platform::RUBY
   s.name      =   "bugzscout"
-  s.version   =   "0.0.3"
+  s.version   =   "0.0.4"
   s.author    =   "Michael Gorsuch"
   s.email     =   "michael@styledbits.com"
   s.summary   =   "A package for using Fog Creek Software's FogBugz BugzScout bug reporting system."
-  s.homepage  =   "http://bitbucket.org/mgorsuch/rb-bugzscout"
+  s.homepage  =   "http://github.com/mgorsuch/BugzScout"
   s.files     =   FileList['lib/*.rb', 'test/*'].to_a
   s.require_path  =   "lib"
   s.test_files = Dir.glob('tests/*.rb')
