@@ -5,3 +5,16 @@ for further diagnosis.
 Author:: Michael Gorsuch (mailto:michael@styledbits.com)
 Copyright:: Copyright (c) 2009 Michael Gorsuch
 License:: Distributed under the same terms as Ruby
+
+Usage:
+
+require 'rubygems'
+require 'bugzscout'
+
+FogBugz::BugzScout.submit("https://mysite.fogbugz.com/scoutsubmit.asp") do |scout|
+  scout.user = "John Doe"
+  scout.project = "inbox"
+  scout.area = "undecided"
+  scout.title = "New Bug in the Wild!"
+  scout.body = "AH!  Details..."
+end
