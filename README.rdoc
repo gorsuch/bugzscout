@@ -6,7 +6,7 @@ for further diagnosis.
 
 Author:: Michael Gorsuch (mailto:michael@styledbits.com)
 Copyright:: Copyright (c) 2009 Michael Gorsuch
-License:: Distributed under the same terms as Ruby
+License:: BSD
 
 == Usage
 
