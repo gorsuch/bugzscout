@@ -8,13 +8,13 @@ License:: Distributed under the same terms as Ruby
 
 Usage:
 
-require 'rubygems'
-require 'bugzscout'
+	require 'rubygems'
+	require 'bugzscout'
 
-FogBugz::BugzScout.submit("https://mysite.fogbugz.com/scoutsubmit.asp") do |scout|
-  scout.user = "John Doe"
-  scout.project = "inbox"
-  scout.area = "undecided"
-  scout.title = "New Bug in the Wild!"
-  scout.body = "AH!  Details..."
-end
+	FogBugz::BugzScout.submit("https://mysite.fogbugz.com/scoutsubmit.asp") do |scout|
+	  scout.user = "John Doe"
+	  scout.project = "inbox"
+	  scout.area = "undecided"
+	  scout.title = "New Bug in the Wild!"
+	  scout.body = "AH!  Details..."
+	end
