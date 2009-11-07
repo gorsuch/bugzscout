@@ -8,7 +8,7 @@ Author:: Michael Gorsuch (mailto:michael@styledbits.com)
 Copyright:: Copyright (c) 2009 Michael Gorsuch
 License:: BSD
 
-== Usage
+== Quick Usage
 
   require 'rubygems'
   require 'bugzscout'
@@ -20,3 +20,7 @@ License:: BSD
     scout.title = "New Bug in the Wild!"
     scout.body = "AH!  Details..."
   end
+
+== Error Handling
+
+If things don't go so swell, you can expect to see an exception of type FogBugz::BugzScoutError raised along with a message describing what failed.
