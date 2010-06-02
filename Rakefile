@@ -4,9 +4,9 @@ require 'rake/gempackagetask'
 spec = Gem::Specification.new do |s|
   s.platform  =   Gem::Platform::RUBY
   s.name      =   "bugzscout"
-  s.version   =   "1.0.2"
+  s.version   =   "1.0.3"
   s.author    =   "Michael Gorsuch"
-  s.email     =   "michael@styledbits.com"
+  s.email     =   "michael.gorsuch@gmail.com"
   s.summary   =   "A package for using Fog Creek Software's FogBugz BugzScout bug reporting system."
   s.homepage  =   "http://github.com/mgorsuch/bugzscout"
   s.files     =   FileList['lib/*.rb', 'test/*'].to_a
